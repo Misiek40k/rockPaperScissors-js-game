@@ -1,23 +1,25 @@
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-let playerInput = prompt('Chose your move! 1: rock, 2: paper, 3: scissors.');
 let playerMove;
 let gameResult;
 let computerMove;
 
+let randomNumber = Math.floor(Math.random() * 3 + 1);
+let playerInput = prompt('Chose your move! 1: rock, 2: paper, 3: scissors.');
 
-if (randomNumber == 1) {
+playerInput = parseInt(playerInput);
+
+if (randomNumber === 1) {
     computerMove = 'rock';
-} else if (randomNumber == 2) {
+} else if (randomNumber === 2) {
     computerMove = 'paper';
 } else {
     computerMove = 'scissors';
 }
 
-if (playerInput == '1') {
+if (playerInput === 1) {
     playerMove = 'rock';
-} else if (playerInput == '2') {
+} else if (playerInput === 2) {
     playerMove = 'paper';
-} else if (playerInput == '3') {
+} else if (playerInput === 3) {
     playerMove = 'scissors';
 } else {
     playerMove = 'unknown move';
@@ -26,23 +28,23 @@ if (playerInput == '1') {
 printMessage('Your move is: ' + playerMove);
 printMessage('Computer move is: ' + computerMove);
 
-if (computerMove == 'rock' && playerMove == 'paper') {
+if (computerMove === 'rock' && playerMove === 'paper') {
     printMessage('You Win !!');
-} else if (computerMove == 'rock' && playerMove == 'scissors') {
+} else if (computerMove === 'rock' && playerMove === 'scissors') {
     printMessage('You Lose !!');
-} else if (computerMove == 'rock' && playerMove == 'rock') {
-    printMessage('Draw !!');
-} else if (computerMove == 'paper' && playerMove == 'rock') {
+} else if (computerMove === 'paper' && playerMove === 'rock') {
     printMessage('You Lose !!');
-} else if (computerMove == 'paper' && playerMove == 'scissors') {
+} else if (computerMove === 'paper' && playerMove === 'scissors') {
     printMessage('You Win !!');
-} else if (computerMove == 'paper' && playerMove == 'paper') {
-    printMessage('Draw !!');
-} else if (computerMove == 'scissors' && playerMove == 'paper') {
+} else if (computerMove === 'scissors' && playerMove === 'paper') {
     printMessage('You Lose !!');
-} else if (computerMove == 'scissors' && playerMove == 'rock') {
+} else if (computerMove === 'scissors' && playerMove === 'rock') {
     printMessage('You Win !!');
-} else if (computerMove == 'scissors' && playerMove == 'scissors') {
+} else if (
+    computerMove === 'scissors' && playerMove === 'scissors' ||
+    computerMove === 'rock' && playerMove === 'rock' ||
+    computerMove === 'paper' && playerMove === 'paper'
+) {
     printMessage('Draw !!');
 } else {
     printMessage('Wrong move ! Try again!');
