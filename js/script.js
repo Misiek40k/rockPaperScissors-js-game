@@ -1,7 +1,15 @@
-let computerMove = 'rock';
-let playerMove = 'paper';
+let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-printMessage(`
-    My move is: ${computerMove} !
-    Your move is: ${paper}, you win !`
-);
+console.log(`random number is: ${randomNumber}`);
+
+let computerMove = 'unknown move';
+
+if (randomNumber == 1) {
+    computerMove = 'rock';
+} else if (randomNumber == 2) {
+    computerMove = 'paper';
+} else {
+    computerMove = 'scissors';
+}
+
+printMessage('Computer move is: ' + computerMove);
