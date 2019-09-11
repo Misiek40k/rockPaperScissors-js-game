@@ -1,54 +1,32 @@
-let playerMove;
-let gameResult;
-let computerMove;
+const ROCK = 1;
+const PAPER = 2;
+const SCISSORS = 3;
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-let playerInput = prompt('Chose your move! 1: rock, 2: paper, 3: scissors.');
+const computerMove = Math.floor(Math.random() * 3 + 1);
+const playerMove = parseInt(prompt('Chose your move! 1: rock, 2: paper, 3: scissors.'));
 
-playerInput = parseInt(playerInput);
-
-if (randomNumber === 1) {
-    computerMove = 'rock';
-} else if (randomNumber === 2) {
-    computerMove = 'paper';
-} else {
-    computerMove = 'scissors';
+switch (true) {
+    case computerMove === ROCK && playerMove === PAPER:
+        printMessage(`Computer move is: Rock<br>Your move is: Paper<br>You Win !!`);
+        break;
+    case computerMove === ROCK && playerMove === SCISSORS:
+        printMessage(`Computer move is: Rock<br>Your move is: Scissors<br>You Lose !!`);
+        break;
+    case computerMove === PAPER && playerMove === ROCK:
+        printMessage(`Computer move is: Paper<br>Your move is: Rock<br>You Lose !!`);
+        break;
+    case computerMove === PAPER && playerMove === SCISSORS:
+        printMessage(`Computer move is: Paper<br>Your move is: Scissors<br>You Win !!`);
+        break;
+    case computerMove === SCISSORS && playerMove === PAPER:
+        printMessage(`Computer move is: Scissors<br>Your move is: Paper<br>You Lose !!`);
+        break;
+    case computerMove === SCISSORS && playerMove === ROCK:
+        printMessage(`Computer move is: Scissors<br>Your move is: Rock<br>You Win !!`);
+        break;
+    case computerMove === playerMove:
+        printMessage('Both moves are same! Draw !!');
+        break;
+    case playerMove !== computerMove:
+        printMessage('Wrong move ! Try again!');
 }
-
-if (playerInput === 1) {
-    playerMove = 'rock';
-} else if (playerInput === 2) {
-    playerMove = 'paper';
-} else if (playerInput === 3) {
-    playerMove = 'scissors';
-} else {
-    playerMove = 'unknown move';
-}
-
-printMessage('Your move is: ' + playerMove);
-printMessage('Computer move is: ' + computerMove);
-
-if (computerMove === 'rock' && playerMove === 'paper') {
-    printMessage('You Win !!');
-} else if (computerMove === 'rock' && playerMove === 'scissors') {
-    printMessage('You Lose !!');
-} else if (computerMove === 'paper' && playerMove === 'rock') {
-    printMessage('You Lose !!');
-} else if (computerMove === 'paper' && playerMove === 'scissors') {
-    printMessage('You Win !!');
-} else if (computerMove === 'scissors' && playerMove === 'paper') {
-    printMessage('You Lose !!');
-} else if (computerMove === 'scissors' && playerMove === 'rock') {
-    printMessage('You Win !!');
-} else if (
-    computerMove === 'scissors' && playerMove === 'scissors' ||
-    computerMove === 'rock' && playerMove === 'rock' ||
-    computerMove === 'paper' && playerMove === 'paper'
-) {
-    printMessage('Draw !!');
-} else {
-    printMessage('Wrong move ! Try again!');
-}
-
-
-
