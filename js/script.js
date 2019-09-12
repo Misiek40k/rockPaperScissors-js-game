@@ -10,35 +10,37 @@ let getMoveName = (moveName) => {
     } else if (moveName === SCISSORS) {
         return 'Scissors';
     } else {
-        printMessage('Uknkown move !')
+        printMessage('Uknkown player move !')
     }
 }
 
 let displayResult = (computerMove, playerMove) => {
+    let player = getMoveName(playerMove);
+    let computer = getMoveName(computerMove);
     switch (true) {
         case computerMove === ROCK && playerMove === PAPER:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Win !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
             break;
         case computerMove === ROCK && playerMove === SCISSORS:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Lose !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
             break;
         case computerMove === PAPER && playerMove === ROCK:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Lose !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
             break;
         case computerMove === PAPER && playerMove === SCISSORS:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Win !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
             break;
         case computerMove === SCISSORS && playerMove === PAPER:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Lose !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
             break;
         case computerMove === SCISSORS && playerMove === ROCK:
-            printMessage(`Computer move is: ${getMoveName(computerMove)}<br>Your move is: ${getMoveName(playerMove)}<br>You Win !!`);
+            printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
             break;
         case computerMove === playerMove:
             printMessage('Both moves are same! Draw !!');
             break;
         case playerMove !== computerMove:
-            printMessage('Wrong move ! Try again!');
+            printMessage('Try again!');
     }
 }
 
