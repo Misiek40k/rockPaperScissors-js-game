@@ -39,11 +39,10 @@ let displayResult = (computerMove, playerMove) => {
         case computerMove === playerMove:
             printMessage('Both moves are same! Draw !!');
             break;
-        case playerMove !== computerMove:
+        default:
             printMessage('Try again!');
     }
 }
-
 
 const computerMove = Math.floor(Math.random() * 3 + 1);
 const playerMove = parseInt(prompt('Chose your move! 1: rock, 2: paper, 3: scissors.'));
