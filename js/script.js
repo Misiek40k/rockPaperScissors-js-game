@@ -6,6 +6,11 @@ const btnRock = document.getElementById('btnRock');
 const btnPaper = document.getElementById('btnPaper');
 const btnScissors = document.getElementById('btnScissors');
 
+let results = document.getElementById('results');
+
+let computerResult = 0;
+let playerResult = 0;
+
 let playGame = (playerMove) => {
     let getMoveName = (moveName) => {
         if (moveName === ROCK) {
@@ -24,21 +29,27 @@ let playGame = (playerMove) => {
         let computer = getMoveName(computerMove);
         switch (true) {
             case computerMove === ROCK && playerMove === PAPER:
+                playerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
                 break;
             case computerMove === ROCK && playerMove === SCISSORS:
+                computerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
                 break;
             case computerMove === PAPER && playerMove === ROCK:
+                computerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
                 break;
             case computerMove === PAPER && playerMove === SCISSORS:
+                playerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
                 break;
             case computerMove === SCISSORS && playerMove === PAPER:
+                computerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
                 break;
             case computerMove === SCISSORS && playerMove === ROCK:
+                playerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
                 break;
             case computerMove === playerMove:
@@ -47,6 +58,8 @@ let playGame = (playerMove) => {
             default:
                 printMessage('Try again!');
         }
+
+        results.innerHTML = `Computer: ${computerResult} - Player: ${playerResult}`;
     }
 
     const computerMove = Math.floor(Math.random() * 3 + 1);
