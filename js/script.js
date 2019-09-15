@@ -1,18 +1,17 @@
-const ROCK = 1;
-const PAPER = 2;
-const SCISSORS = 3;
+const ROCK = 1,
+    PAPER = 2,
+    SCISSORS = 3;
 
-const btnRock = document.getElementById('btnRock');
-const btnPaper = document.getElementById('btnPaper');
-const btnScissors = document.getElementById('btnScissors');
+const btnRock = document.getElementById('btnRock'),
+    btnPaper = document.getElementById('btnPaper'),
+    btnScissors = document.getElementById('btnScissors'),
+    results = document.getElementById('results');
 
-let results = document.getElementById('results');
+let computerResult = 0,
+    playerResult = 0;
 
-let computerResult = 0;
-let playerResult = 0;
-
-let playGame = (playerMove) => {
-    let getMoveName = (moveName) => {
+const playGame = (playerMove) => {
+    const getMoveName = (moveName) => {
         if (moveName === ROCK) {
             return 'Rock';
         } else if (moveName === PAPER) {
@@ -24,9 +23,10 @@ let playGame = (playerMove) => {
         }
     }
 
-    let displayResult = (computerMove, playerMove) => {
-        let player = getMoveName(playerMove);
-        let computer = getMoveName(computerMove);
+    const displayResult = (computerMove, playerMove) => {
+        let player = getMoveName(playerMove),
+            computer = getMoveName(computerMove);
+
         switch (true) {
             case computerMove === ROCK && playerMove === PAPER:
                 playerResult += 1;
