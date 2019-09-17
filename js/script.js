@@ -1,14 +1,14 @@
-const ROCK = 1,
-    PAPER = 2,
-    SCISSORS = 3;
+const ROCK = 1;
+const PAPER = 2;
+const SCISSORS = 3;
 
-const btnRock = document.getElementById('btnRock'),
-    btnPaper = document.getElementById('btnPaper'),
-    btnScissors = document.getElementById('btnScissors'),
-    results = document.getElementById('results');
+const btnRock = document.getElementById('btnRock');
+const btnPaper = document.getElementById('btnPaper');
+const btnScissors = document.getElementById('btnScissors');
+const results = document.getElementById('results');
 
-let computerResult = 0,
-    playerResult = 0;
+let computerResult = 0;
+let playerResult = 0;
 
 const playGame = (playerMove) => {
     const getMoveName = (moveName) => {
@@ -24,8 +24,8 @@ const playGame = (playerMove) => {
     }
 
     const displayResult = (computerMove, playerMove) => {
-        const player = getMoveName(playerMove),
-            computer = getMoveName(computerMove);
+        const player = getMoveName(playerMove);
+        const computer = getMoveName(computerMove);
 
         switch (true) {
             case computerMove === ROCK && playerMove === PAPER:
