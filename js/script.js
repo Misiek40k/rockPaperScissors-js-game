@@ -5,14 +5,13 @@ const SCISSORS = 3;
 const btnRock = document.getElementById('btnRock');
 const btnPaper = document.getElementById('btnPaper');
 const btnScissors = document.getElementById('btnScissors');
-
-let results = document.getElementById('results');
+const results = document.getElementById('results');
 
 let computerResult = 0;
 let playerResult = 0;
 
-let playGame = (playerMove) => {
-    let getMoveName = (moveName) => {
+const playGame = (playerMove) => {
+    const getMoveName = (moveName) => {
         if (moveName === ROCK) {
             return 'Rock';
         } else if (moveName === PAPER) {
@@ -24,9 +23,10 @@ let playGame = (playerMove) => {
         }
     }
 
-    let displayResult = (computerMove, playerMove) => {
-        let player = getMoveName(playerMove);
-        let computer = getMoveName(computerMove);
+    const displayResult = (computerMove, playerMove) => {
+        const player = getMoveName(playerMove);
+        const computer = getMoveName(computerMove);
+
         switch (true) {
             case computerMove === ROCK && playerMove === PAPER:
                 playerResult += 1;
