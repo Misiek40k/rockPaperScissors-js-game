@@ -24,7 +24,7 @@ const playGame = (playerMove) => {
     }
 
     const displayResult = (computerMove, playerMove) => {
-        let player = getMoveName(playerMove),
+        const player = getMoveName(playerMove),
             computer = getMoveName(computerMove);
 
         switch (true) {
