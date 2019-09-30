@@ -29,28 +29,16 @@ const playGame = (playerMove) => {
 
         switch (true) {
             case computerMove === ROCK && playerMove === PAPER:
-                playerResult += 1;
-                printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
-                break;
-            case computerMove === ROCK && playerMove === SCISSORS:
-                computerResult += 1;
-                printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
-                break;
-            case computerMove === PAPER && playerMove === ROCK:
-                computerResult += 1;
-                printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
-                break;
+            case computerMove === SCISSORS && playerMove === ROCK:
             case computerMove === PAPER && playerMove === SCISSORS:
                 playerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
                 break;
+            case computerMove === ROCK && playerMove === SCISSORS:
+            case computerMove === PAPER && playerMove === ROCK:
             case computerMove === SCISSORS && playerMove === PAPER:
                 computerResult += 1;
                 printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Lose !!`);
-                break;
-            case computerMove === SCISSORS && playerMove === ROCK:
-                playerResult += 1;
-                printMessage(`Computer move is: ${computer}<br>Your move is: ${player}<br>You Win !!`);
                 break;
             case computerMove === playerMove:
                 printMessage('Both moves are same! Draw !!');
